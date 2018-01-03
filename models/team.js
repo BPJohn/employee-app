@@ -67,7 +67,7 @@ mongoose.createConnection(dbUrl,function(err){
     if(err){
         return console.log('There was an error communicating with the Database'+ err);
     }
-    console.log('Connected !'.green);
+    console.log('Connected To MongoDB frome team.js!'.green);
 
     Team.create([{
         name : 'Product Development'
@@ -127,7 +127,7 @@ TeamSchema.plugin(postFind,{
     }
 });
 mongoose.createConnection(dbUrl,function(){
-    console.log('connected'.green);
+    console.log('connected To Database form team.js'.blue);
 
 
 });
