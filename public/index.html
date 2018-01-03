@@ -22,8 +22,9 @@
         
         <button ng-disabled = "!(firstName.length && lastName.length)" ng-click = "add()">Add</button>
         <table>
-        <th>Employees</th>
-            <th>
+        <th><h3>Employees  {{[employees.length]}}</h3></th>
+            
+            <h4><tr>
                 <td>Employee ID</td>
                 <td>First Name</td>
                 <td>Last Name</td>
@@ -32,7 +33,8 @@
                 <td>state</td>
                 <td>zip</td>
                 <td>Remove</td>
-            </tr>
+                <br/>
+            </tr></h4>
             <tr ng-repeat = 'personel in employees'>
             <td>{{personel.id}}</td>
                 <td>{{personel.name.first}}</td>
@@ -44,7 +46,9 @@
                 <td>{{personel.address.zip}}</td>
                 <td><button ng-click = '$parent.remove(p)'>Remove</button></td>
             </tr>
+            <td><h3>Team Total {{[teams.length]}}</h3></td>
         <tr ng-repeat = 'members in teams'>
+            
             <td>{{members.name}}</td>
         
         </tr>
