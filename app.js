@@ -27,7 +27,7 @@ res.send('path three');
 });
 app.use('/api',function(req , res ,next){
     console.log('/api logger'.green);
-    console.log(req.method + ' '.blue +req.url.blue);
+    console.log(req.method + ' '.blue +req.url.green);
     next();
 });
 

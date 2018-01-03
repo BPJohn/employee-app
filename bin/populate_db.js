@@ -7,17 +7,17 @@ var Team = mongoose.model('Team');
 
 var data = {
     employee:[{
-        id:'100003',
+        id:'12311966',
         name:{
             first:'Bryan',
             last: 'John'
         },
         image: 'image/employees/1000003.png',
         address:{
-            line:['522 Dukeway Dr.'],
+            lines:['522 Dukeway Dr.','Apt No 2'],
             city:'Universal City ',
             state:'TX',
-            zip:78148
+            zip:'78148'
         }
     },
       {        

@@ -2,6 +2,10 @@
 <html lang ='en' ng-app = 'app'>
 <head>
 <title>Employee Full Stack Practis</title>
+   <h2> <script>
+        document.write('Today is '+ Date());
+    
+    </script></h2>
   <meta charset="utf-8">
 <h2>Full Stack Practice Employee App</h2>
       
@@ -19,17 +23,31 @@
         <button ng-disabled = "!(firstName.length && lastName.length)" ng-click = "add()">Add</button>
         <table>
         <th>Employees</th>
-            <tr>
+            <th>
                 <td>Employee ID</td>
                 <td>First Name</td>
                 <td>Last Name</td>
+                <td>Address</td>
+                <td>city</td>
+                <td>state</td>
+                <td>zip</td>
+                <td>Remove</td>
             </tr>
-            <tr ng-repeat = 'p in employees'>
-            <td>{{p.id}}</td>
-                <td>{{p.first}}</td>
-                <td><span>{{p.last}}</span></td>
+            <tr ng-repeat = 'personel in employees'>
+            <td>{{personel.id}}</td>
+                <td>{{personel.name.first}}</td>
+                <td>{{personel.name.last}}</td>
+                <td>{{personel.address.lines}}</td>
+                <td>{{personel.address.lines.0}}</td>
+                <td>{{personel.address.city}}</td>
+                <td>{{personel.address.state}}</td>
+                <td>{{personel.address.zip}}</td>
                 <td><button ng-click = '$parent.remove(p)'>Remove</button></td>
             </tr>
+        <tr ng-repeat = 'members in teams'>
+            <td>{{members.name}}</td>
+        
+        </tr>
         
         
         </table>
@@ -53,9 +71,13 @@
                 $scope.employees = data ;
                 $rootScope.$emit('log','GET /employees success');
             });
+            $http.get('/teams').success(function(data){
+                $scope.teams = data;
+                $rootScope.$emit('log','GET /teams success');
+            })
             
             $scope.add = function(){
-                $http.post('/employees',{
+                $http.post('/employees/',{
                     first : $scope.firstName,
                     last : $scope.lastName
                 }).success(function(data){
